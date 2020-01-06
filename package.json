@@ -1,0 +1,31 @@
+{
+    "name": "countriesapp-backend",
+    "version": "1.0.0",
+    "description": "Backend server for the Ionic \"countriesApp\" application.",
+    "main": "index.ts",
+    "scripts": {
+        "start": "node dist/",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Xabier Remirez",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.1.6",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.8.2",
+        "uniqid": "^5.2.0"
+    },
+    "devDependencies": {
+        "@types/bcryptjs": "^2.4.2",
+        "@types/cors": "^2.8.6",
+        "@types/express": "^4.17.2",
+        "@types/express-fileupload": "^1.1.0",
+        "@types/jsonwebtoken": "^8.3.5",
+        "@types/mongoose": "^5.5.35",
+        "@types/uniqid": "^4.1.3"
+    }
+}
