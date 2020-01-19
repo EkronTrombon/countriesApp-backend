@@ -61,8 +61,13 @@ class FileSystem {
         const pathUser = path_1.default.resolve(__dirname, '../uploads/', userId);
         const pathUserTemp = pathUser + '/temp';
         const exists = fs_1.default.existsSync(pathUser);
+        const existsTemp = fs_1.default.existsSync(pathUserTemp);
         if (!exists) {
             fs_1.default.mkdirSync(pathUser);
+            // fs.mkdirSync(pathUserTemp);
+        }
+        if (!existsTemp) {
+            // fs.mkdirSync(pathUser);
             fs_1.default.mkdirSync(pathUserTemp);
         }
         return pathUserTemp;
