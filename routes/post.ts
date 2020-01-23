@@ -40,6 +40,24 @@ postRoutes.post('/', verifyToken, (req: any, res: Response) => {
     });
 });
 
+// Delete Post by ID
+postRoutes.post('/delete/:id', (req: Request, res: Response) => {
+    const id = req.params.id;
+    Post.findByIdAndDelete(id, (err, deletedPostDB) => {
+        if (err) throw err;
+        if (!deletedPostDB) {
+            return res.json({
+                ok: false,
+                message: 'The Post does not exist'
+            });
+        }
+        res.json({
+            ok: true,
+            post: deletedPostDB
+        });
+    });
+});
+
 // Upload post images
 postRoutes.post('/upload', verifyToken, async(req: any, res: Response) => {
     if (!req.files) {

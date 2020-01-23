@@ -48,6 +48,24 @@ postRoutes.post('/', auth_1.verifyToken, (req, res) => {
         });
     });
 });
+// Delete Post by ID
+postRoutes.post('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    post_1.Post.findByIdAndDelete(id, (err, deletedPostDB) => {
+        if (err)
+            throw err;
+        if (!deletedPostDB) {
+            return res.json({
+                ok: false,
+                message: 'The Post does not exist'
+            });
+        }
+        res.json({
+            ok: true,
+            post: deletedPostDB
+        });
+    });
+});
 // Upload post images
 postRoutes.post('/upload', auth_1.verifyToken, (req, res) => __awaiter(this, void 0, void 0, function* () {
     if (!req.files) {
